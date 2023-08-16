@@ -15,14 +15,15 @@ function validerNom(e){
 
 function validerEmail(e){
     e.preventDefault();
-    let emailRegEx = /\S+@\S+\.\S+/;
-    let checkEmail = emailRegEx.test(baliseEmail);
-    if(checkEmail){
+    let emailRegEx = new RegExp("[a-z0-9._-]+@[a-z0-9._-]+\\.[a-z0-9._-]+");
+    if(emailRegEx.test(baliseEmail.value)){
         console.log(`Ce email ${baliseEmail.value} est valide`);
+        baliseEmail.value = ""
     }else{
         console.log("Cet email ne correspond pas");
     }
-    return checkEmail;
+
+    return emailRegEx;
 }
 
 // Event Listener
